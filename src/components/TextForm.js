@@ -9,6 +9,7 @@ export default function TextForm(props) {
         setText(event.target.value);
     };
     const handleUpClick = () => {
+        // console.log("Uppercase!");
         setText(text.toUpperCase());
     };
     const handleLowClick = () => {
@@ -17,6 +18,18 @@ export default function TextForm(props) {
     const handleClearClick = () => {
         setText("");
     };
+    async function handleCopy() { 
+        try {
+            await navigator.clipboard.writeText(text); // is not working on phone
+            // console.log('copied to clipboard');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    }
+    const handleExtraSpaces = () =>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
     const countWords = (string) => {
         let temp = string.trim().split(" ");
         return temp.filter((word) => word !== "").length;
@@ -44,6 +57,12 @@ export default function TextForm(props) {
                 </button>
                 <button className="btn btn-sm btn-danger my-2 ms-2" onClick={handleClearClick}>
                     Clear
+                </button>
+                <button className="btn btn-sm btn-success my-2 ms-2" onClick={handleCopy}>
+                    Copy
+                </button>
+                <button className="btn btn-sm btn-success my-2 ms-2" onClick={handleExtraSpaces}>
+                    Remove extra spaces
                 </button>
             </div>
             <div className="container">

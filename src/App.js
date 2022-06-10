@@ -1,7 +1,7 @@
 import "./App.css";
-import About from "./components/About";
+// import About from "./components/About";
 import Navbar from "./components/Navbar";
-// import TextForm from "./components/TextForm";
+import TextForm from "./components/TextForm";
 
 function App() {
   return (
@@ -9,13 +9,13 @@ function App() {
     <>
       <Navbar title="TextUtils" aboutText="About textutils" />
       {/* <Navbar/> */}
-      {/* <div className="container my-3">
-        <TextForm heading = "Enter the text to analyze"/>
-      </div> */}
-
       <div className="container my-3">
-        <About/>
+        <TextForm heading = "Enter the text to analyze"/>
       </div>
+
+      {/* <div className="container my-3">
+        <About/>
+      </div> */}
     </>
   );
 }
