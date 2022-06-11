@@ -15,9 +15,6 @@ export default function TextForm(props) {
     const handleLowClick = () => {
         setText(text.toLowerCase());
     };
-    const handleClearClick = () => {
-        setText("");
-    };
     async function handleCopy() { 
         try {
             await navigator.clipboard.writeText(text); // is not working on phone
@@ -30,6 +27,9 @@ export default function TextForm(props) {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
     }
+    const handleClearClick = () => {
+        setText("");
+    };
     const countWords = (string) => {
         let temp = string.trim().split(" ");
         return temp.filter((word) => word !== "").length;
@@ -47,6 +47,10 @@ export default function TextForm(props) {
                         value={text}
                         onChange={handleOnChange}
                         height="50"
+                        style={
+                            {backgroundColor:props.myMode==='dark'?'#282828':'white',
+                            color:props.myMode==='dark'?'white':'black'}
+                        }
                     ></textarea>
                 </div>
                 <button className="btn btn-sm btn-primary my-2" onClick={handleUpClick}>
@@ -55,14 +59,14 @@ export default function TextForm(props) {
                 <button className="btn btn-sm btn-primary my-2 ms-2" onClick={handleLowClick}>
                     Convert to lowercase
                 </button>
-                <button className="btn btn-sm btn-danger my-2 ms-2" onClick={handleClearClick}>
-                    Clear
-                </button>
                 <button className="btn btn-sm btn-success my-2 ms-2" onClick={handleCopy}>
                     Copy
                 </button>
                 <button className="btn btn-sm btn-success my-2 ms-2" onClick={handleExtraSpaces}>
                     Remove extra spaces
+                </button>
+                <button className="btn btn-sm btn-danger my-2 ms-2" onClick={handleClearClick}>
+                    Clear
                 </button>
             </div>
             <div className="container">
@@ -72,7 +76,7 @@ export default function TextForm(props) {
                 </p>
                 <p>{0.008 * countWords(text)} minutes read</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length===0?"Enter something in the textbox to preview here":text}</p>
             </div>
         </>
     );
