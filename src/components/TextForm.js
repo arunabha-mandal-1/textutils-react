@@ -11,13 +11,16 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         // console.log("Uppercase!");
         setText(text.toUpperCase());
+        text.length>0 && props.myShowAlert("Converted to uppercase", "success");
     };
     const handleLowClick = () => {
         setText(text.toLowerCase());
+        text.length>0 && props.myShowAlert("Converted to lowercase", "success");
     };
     async function handleCopy() { 
         try {
             await navigator.clipboard.writeText(text); // is not working on phone
+            props.myShowAlert("Text copied", "success");
             // console.log('copied to clipboard');
         } catch (err) {
             console.error('Failed to copy: ', err);
@@ -26,13 +29,16 @@ export default function TextForm(props) {
     const handleExtraSpaces = () =>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.myShowAlert("Extra space removed", "success");
     }
     const handleClearClick = () => {
         setText("");
+        props.myShowAlert("Cleared", "success");
     };
     const countWords = (string) => {
         let temp = string.trim().split(" ");
-        return temp.filter((word) => word !== "").length;
+        const totalWords = temp.filter((word) => word !== "").length;
+        return totalWords;
     };
     return (
         <>
