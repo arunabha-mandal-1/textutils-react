@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, { useState } from 'react'
 import Alert from "./components/Alert";
+// import Diffmode from "./components/Diffmode";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     // js fragment cuz we can only return one tag
     <>
       <Navbar title="TextUtils" aboutText="About textutils" myMode={mode} handleMode={toggleMode} />
+      {/* <Diffmode/> */}
       <Alert alert={alert}/>
       {/* <Navbar/> */}
       <div className="container my-3">

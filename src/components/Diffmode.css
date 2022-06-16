@@ -1,0 +1,15 @@
+.right{
+    float: right;
+}
+.blue{
+    background-color: rgb(7, 7, 117);
+    color: white;
+}
+.grey{
+    background-color: rgb(75, 74, 74);
+    color: white;
+}
+.purple{
+    background-color: rgb(88, 8, 88);
+    color: white;
+}

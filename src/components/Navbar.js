@@ -1,9 +1,11 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.myMode} bg-${props.myMode}`}>
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.myMode} bg-${props.myMode}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -43,9 +45,26 @@ export default function Navbar(props) {
               Search
             </button>
           </form> */}
-          <div className={`form-check form-switch text-${props.myMode === 'light' ? 'dark' : 'light'}`}>
-            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.handleMode} />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.myMode === 'light' ? "Enable Darkmode" : "Enable Lightmode"}</label>
+
+          <div
+            className={`form-check form-switch text-${props.myMode === "light" ? "dark" : "light"
+              }`}
+          >
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+              onClick={props.handleMode}
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              {props.myMode === "light"
+                ? "Enable Darkmode"
+                : "Enable Lightmode"}
+            </label>
           </div>
         </div>
       </div>
@@ -55,10 +74,10 @@ export default function Navbar(props) {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string
-}
+  aboutText: PropTypes.string,
+};
 
 Navbar.defaultProps = {
   title: "Enter-Title-Here",
-  aboutText: "Enter-About-Here"
-}
+  aboutText: "Enter-About-Here",
+};
