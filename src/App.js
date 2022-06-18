@@ -27,12 +27,20 @@ function App() {
       document.body.style.backgroundColor='black';
       document.body.style.color='white';
       showAlert("Dark mode has been enebled", "success");
+      // changing title after some effect/operations=>like: facebook(1) title
+      document.title = 'TextUtils - Home(dark)';
+      
+      // experiment
+      // const flag = setInterval(() => {
+      //   document.title = 'TextUtils is amazing.';
+      // }, 3000);
     }
     else { 
       setMode('light'); 
       document.body.style.backgroundColor='white';
       document.body.style.color='black';
       showAlert("Light mode has been enebled", "success");
+      document.title = 'TextUtils - Home(light)';
     }
   }
   return (
