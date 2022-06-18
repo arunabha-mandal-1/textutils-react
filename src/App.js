@@ -1,62 +1,82 @@
+import React, { useState } from "react";
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
+import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import React, { useState } from 'react'
-import Alert from "./components/Alert";
 // import Diffmode from "./components/Diffmode";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import ReactDOM from "react-dom/client";
 
 function App() {
-  const [mode, setMode] = useState('light');
+  const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type)=>{
+  const showAlert = (message, type) => {
     setAlert({
       msg: message,
-      type: type
+      type: type,
     });
     setTimeout(() => {
       setAlert(null);
     }, 1500);
-  }
+  };
 
   const toggleMode = () => {
-    if (mode === 'light') {
-      setMode('dark');
-      document.body.style.backgroundColor='black';
-      document.body.style.color='white';
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
       showAlert("Dark mode has been enebled", "success");
       // changing title after some effect/operations=>like: facebook(1) title
-      document.title = 'TextUtils - Home(dark)';
-      
+      document.title = "TextUtils - Home(dark)";
+
       // experiment
       // const flag = setInterval(() => {
       //   document.title = 'TextUtils is amazing.';
       // }, 3000);
-    }
-    else { 
-      setMode('light'); 
-      document.body.style.backgroundColor='white';
-      document.body.style.color='black';
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
       showAlert("Light mode has been enebled", "success");
-      document.title = 'TextUtils - Home(light)';
+      document.title = "TextUtils - Home(light)";
     }
-  }
+  };
   return (
     // js fragment cuz we can only return one tag
     <>
-      <Navbar title="TextUtils" aboutText="About textutils" myMode={mode} handleMode={toggleMode} />
-      {/* <Diffmode/> */}
-      <Alert alert={alert}/>
-      {/* <Navbar/> */}
-      <div className="container my-3">
-        <TextForm heading="Enter the text to analyze" myMode={mode} myShowAlert={showAlert}/>
-      </div>
-
-      {/* <div className="container my-3">
-        <About/>
-      </div> */}
+      <Router>
+        <Navbar
+          title="TextUtils"
+          aboutText="About textutils"
+          myMode={mode}
+          handleMode={toggleMode}
+        />
+        <Alert alert={alert} />
+        <Routes>
+          <Route
+            exact path="/about"
+            element={
+              <div className="container my-3">
+                <About />
+              </div>
+            }
+          />
+          <Route
+            exact path="/"
+            element={
+              <div className="container my-3">
+                <TextForm
+                  heading="Enter the text to analyze"
+                  myMode={mode}
+                  myShowAlert={showAlert}
+                />
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }
