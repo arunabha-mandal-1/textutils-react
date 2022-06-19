@@ -59,7 +59,7 @@ function App() {
             exact path="/about"
             element={
               <div className="container my-3">
-                <About />
+                <About myAboutMode={mode}/>
               </div>
             }
           />
