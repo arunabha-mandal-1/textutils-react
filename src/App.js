@@ -46,7 +46,7 @@ function App() {
   return (
     // js fragment cuz we can only return one tag
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navbar
           title="TextUtils"
           aboutText="About textutils"
