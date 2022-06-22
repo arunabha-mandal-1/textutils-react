@@ -56,7 +56,7 @@ function App() {
         <Alert alert={alert} />
         <Routes>
           <Route
-            exact path="/about"
+            exact path="/textutils-react/about" // this one is only for github pages
             element={
               <div className="container my-3">
                 <About myAboutMode={mode}/>
