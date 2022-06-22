@@ -5,7 +5,7 @@ import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 // import Diffmode from "./components/Diffmode";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 // import ReactDOM from "react-dom/client";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
   return (
     // js fragment cuz we can only return one tag
     <>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Navbar
           title="TextUtils"
           aboutText="About textutils"
