@@ -46,7 +46,7 @@ function App() {
   return (
     // js fragment cuz we can only return one tag
     <>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename={`/${process.env.PUBLIC_URL}`}>
         <Navbar
           title="TextUtils"
           aboutText="About textutils"
@@ -56,7 +56,7 @@ function App() {
         <Alert alert={alert} />
         <Routes>
           <Route
-            exact path="/textutils-react/about" // this one is only for github pages
+            exact path="/about" // this one is only for github pages
             element={
               <div className="container my-3">
                 <About myAboutMode={mode}/>
@@ -64,7 +64,7 @@ function App() {
             }
           />
           <Route
-            exact path="/textutils-react"
+            exact path="/"
             element={
               <div className="container my-3">
                 <TextForm
