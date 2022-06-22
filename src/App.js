@@ -64,7 +64,7 @@ function App() {
             }
           />
           <Route
-            exact path="/"
+            exact path="/textutils-react"
             element={
               <div className="container my-3">
                 <TextForm
