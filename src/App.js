@@ -5,7 +5,7 @@ import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 // import Diffmode from "./components/Diffmode";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import ReactDOM from "react-dom/client";
 
 function App() {
